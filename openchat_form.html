@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>체인지메이커스 원데이클래스 신청</title>
+<title>체인지메이커스 2.0 얼리버드 혜택 신청</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -220,14 +220,14 @@
 
 <div class="header">
   <div class="logo">CHANGE MAKERS</div>
-  <div class="title">총학생회 제휴 특별 혜택<br>무료 특강 & 1:1 상담 신청</div>
-  <div class="subtitle">협약캠퍼스 오프라인 원데이 클래스 참석 및 1:1 맞춤 상담 예약을 위해<br>아래 내용을 입력해주세요.</div>
+  <div class="title">체인지메이커스 오픈 카톡방<br>얼리버드 특별 혜택 신청</div>
+  <div class="subtitle">체인지메이커스 2.0 커리큘럼 안내 및<br>1:1 맞춤 상담 예약을 위해 아래 내용을 입력해주세요.</div>
 </div>
 
 <div class="form-section">
   <form id="applyForm">
     <!-- 시트 이름 지정용 Hidden Field -->
-    <input type="hidden" name="sheetName" value="B2B_제휴대학DB">
+    <input type="hidden" name="sheetName" value="오카방_신청자">
     
     <div class="field">
       <label>이름</label>
@@ -240,8 +240,8 @@
     </div>
     
     <div class="field">
-      <label>소속 대학교</label>
-      <input type="text" name="소속대학교" placeholder="대학교 이름을 적어주세요" required>
+      <label>최종 학력 (학교명)</label>
+      <input type="text" name="소속대학교" placeholder="예: 한국대학교 (재학생/졸업생 모두 포함)" required>
     </div>
     
     <div class="field">
@@ -250,14 +250,15 @@
     </div>
     
     <div class="field">
-      <label>학년</label>
+      <label>학년 / 상태</label>
       <select name="학년" required>
-        <option value="" disabled selected>학년을 선택해주세요</option>
+        <option value="" disabled selected>선택해주세요</option>
         <option value="1학년">1학년</option>
         <option value="2학년">2학년</option>
         <option value="3학년">3학년</option>
         <option value="4학년 이상">4학년 이상</option>
-        <option value="졸업생">졸업생</option>
+        <option value="졸업생 (취준생)">졸업생 (취준생)</option>
+        <option value="이직 준비 중">이직 준비 중</option>
       </select>
     </div>
     
@@ -270,8 +271,8 @@
       <label style="color:#4ADE80;">컨설턴트 1:1 상담신청 (무료)</label>
       <select name="상담신청여부" required>
         <option value="" disabled selected>상담 희망 여부를 선택해주세요</option>
-        <option value="네, 특강 전후로 상담을 받고 싶습니다">네, 특강 전후로 맞춤 상담을 받고 싶습니다 (추천)</option>
-        <option value="아니요, 우선 무료 특강만 신청하겠습니다">아니요, 우선 무료 특강만 신청하겠습니다</option>
+        <option value="네, 1:1 맞춤 진단 상담을 받고 싶습니다">네, 1:1 맞춤 진단 상담을 받고 싶습니다 (추천)</option>
+        <option value="아니요, 우선 커리큘럼 안내만 받겠습니다">아니요, 우선 커리큘럼 안내만 받겠습니다</option>
       </select>
     </div>
 
@@ -292,7 +293,7 @@
         <input type="checkbox" name="개인정보동의" value="동의함" required>
         <div class="privacy-text">
           <strong style="color:#fff;">개인정보 수집 및 이용 동의 (필수)</strong><br>
-          무료 특강 안내 및 1:1 컨설턴트 상담 배정을 위해 위의 개인정보를 수집하며, 목적 달성 후 파기합니다.
+          얼리버드 혜택 안내 및 1:1 상담 배정을 위해 위의 개인정보를 수집하며, 목적 달성 후 파기합니다.
         </div>
       </label>
     </div>
@@ -300,7 +301,7 @@
 </div>
 
 <div class="bottom-bar">
-  <button class="submit-btn" onclick="submitForm()">무료 특강 & 1차 상담 신청하기 (선착순 40명)</button>
+  <button class="submit-btn" onclick="submitForm()">얼리버드 혜택 & 무료 1차 상담 신청하기</button>
 </div>
 
 <!-- 성공 모달 -->
@@ -309,15 +310,15 @@
     <div class="modal-icon">🎉</div>
     <div class="modal-title">신청이 접수되었습니다!</div>
     <div class="modal-desc">
-      원데이클래스 신청이 정상적으로 완료되었습니다.<br>
-      상세한 참석 안내는 남겨주신 연락처로<br>곧 개별 문자 발송될 예정입니다.
+      얼리버드 혜택 신청이 정상적으로 완료되었습니다.<br>
+      상담 배정 및 상세 안내는 남겨주신 연락처로<br>순차적으로 문자 발송될 예정입니다.
     </div>
     <button class="modal-close" onclick="closeModal()">확인</button>
   </div>
 </div>
 
 <script>
-  // [실무진 안내] 구글 스프레드시트 Apps Script 배포 URL을 아래 변수에 넣어주세요.
+  // [실무진 안내] 구글 스프레드시트 Apps Script 배포 URL
   const GOOGLE_APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx8M-7sGUgb_xHCvnjHROl3cCLKG4QpeEA6S7V5TtW8TYWSoUNeZLYMbZ-l0R7mH105yA/exec';
 
   function submitForm() {
@@ -325,24 +326,10 @@
     const submitBtn = document.querySelector('.submit-btn');
 
     if (form.checkValidity()) {
-      // 1. 제출 버튼 상태 변경 (중복 제출 방지)
       submitBtn.disabled = true;
       submitBtn.innerText = '신청 중...';
 
-      // 2. 폼 데이터 추출
       const formData = new FormData(form);
-
-      // 3. 구글 시트로 데이터 전송 (백엔드 연동)
-      // * URL이 세팅되지 않았을 경우 일단 바로 모달만 띄우게 처리 (디자인 프리뷰용)
-      if (GOOGLE_APP_SCRIPT_URL === '여기에_구글_스크립트_URL_입력') {
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerText = '무료 특강 & 1차 상담 신청하기 (선착순 40명)';
-          document.getElementById('successModal').style.display = 'flex';
-          form.reset(); // 입력값 초기화
-        }, 800);
-        return;
-      }
 
       fetch(GOOGLE_APP_SCRIPT_URL, {
         method: 'POST',
@@ -351,18 +338,17 @@
       })
       .then(() => {
         submitBtn.disabled = false;
-        submitBtn.innerText = '무료 특강 & 1차 상담 신청하기 (선착순 40명)';
+        submitBtn.innerText = '얼리버드 혜택 & 무료 1차 상담 신청하기';
         document.getElementById('successModal').style.display = 'flex';
-        form.reset(); // 성공 시 입력값 초기화
+        form.reset(); 
       })
       .catch(error => {
         alert('신청 처리 중 오류가 발생했습니다. 다시 시도해 주세요.');
         submitBtn.disabled = false;
-        submitBtn.innerText = '무료 특강 & 1차 상담 신청하기 (선착순 40명)';
+        submitBtn.innerText = '얼리버드 혜택 & 무료 1차 상담 신청하기';
       });
 
     } else {
-      // 필수값 누락 시 브라우저 기본 경고 띄우기
       form.reportValidity();
     }
   }
@@ -373,9 +359,9 @@
 
   // 핸드폰 번호 자동 하이픈(-) 포맷팅 기능
   document.getElementById('phoneInput').addEventListener('input', function (e) {
-    let raw = e.target.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+    let raw = e.target.value.replace(/[^0-9]/g, '');
     if (raw.length > 11) {
-      raw = raw.substring(0, 11); // 11자리까지만 허용
+      raw = raw.substring(0, 11);
     }
     
     let formatted = '';
